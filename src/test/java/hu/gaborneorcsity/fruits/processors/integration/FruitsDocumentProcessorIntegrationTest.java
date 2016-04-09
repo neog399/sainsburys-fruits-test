@@ -9,8 +9,9 @@ import hu.gaborneorcsity.fruits.models.FruitCollection;
 import hu.gaborneorcsity.fruits.processors.FruitDocumentProcessor;
 import hu.gaborneorcsity.fruits.processors.FruitsDocumentProcessor;
 import hu.gaborneorcsity.fruits.processors.helper.HtmlRetriever;
-import hu.gaborneorcsity.fruits.processors.helper.JSoupHtmlRetriever;
+import hu.gaborneorcsity.fruits.processors.helper.ApacheHttpRetriever;
 import hu.gaborneorcsity.fruits.processors.helper.JSoupLinkExtractor;
+import org.apache.http.impl.client.HttpClients;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -18,7 +19,7 @@ import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 
 public class FruitsDocumentProcessorIntegrationTest {
-    private HtmlRetriever htmlRetriever = new JSoupHtmlRetriever();
+    private HtmlRetriever htmlRetriever = new ApacheHttpRetriever(HttpClients.createDefault());
 
     private FruitsDocumentProcessor documentProcessor = new FruitsDocumentProcessor(
             new JSoupLinkExtractor(),

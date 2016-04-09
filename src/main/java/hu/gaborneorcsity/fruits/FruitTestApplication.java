@@ -8,8 +8,9 @@ import hu.gaborneorcsity.fruits.models.FruitCollection;
 import hu.gaborneorcsity.fruits.processors.FruitDocumentProcessor;
 import hu.gaborneorcsity.fruits.processors.FruitsDocumentProcessor;
 import hu.gaborneorcsity.fruits.processors.helper.HtmlRetriever;
-import hu.gaborneorcsity.fruits.processors.helper.JSoupHtmlRetriever;
+import hu.gaborneorcsity.fruits.processors.helper.ApacheHttpRetriever;
 import hu.gaborneorcsity.fruits.processors.helper.JSoupLinkExtractor;
+import org.apache.http.impl.client.HttpClients;
 
 public class FruitTestApplication {
     private static final String TEST_PAGE_URL = "http://hiring-tests.s3-website-eu-west-1.amazonaws.com/2015_Developer_Scrape/5_products.html";
@@ -19,7 +20,7 @@ public class FruitTestApplication {
     private HtmlRetriever htmlRetriever;
 
     public FruitTestApplication() {
-        htmlRetriever = new JSoupHtmlRetriever();
+        htmlRetriever = new ApacheHttpRetriever(HttpClients.createDefault());
 
         fruitsDocumentProcessor = new FruitsDocumentProcessor(
                 new JSoupLinkExtractor(),
