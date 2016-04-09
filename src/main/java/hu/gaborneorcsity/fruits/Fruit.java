@@ -2,6 +2,7 @@ package hu.gaborneorcsity.fruits;
 
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Fruit {
@@ -9,15 +10,15 @@ public class Fruit {
 
     private final double size;
 
-    private final double unitPrice;
+    private final BigDecimal unitPrice;
 
     private final String description;
 
-    public Fruit(String title, double size, double unitPrice, String description) {
+    public Fruit(String title, String description, String unitPrice, double size) {
         this.title = title;
-        this.size = size;
-        this.unitPrice = unitPrice;
         this.description = description;
+        this.unitPrice = new BigDecimal(unitPrice);
+        this.size = size;
     }
 
     public String getTitle() {
@@ -28,8 +29,12 @@ public class Fruit {
         return size;
     }
 
-    public double getUnitPrice() {
+    public BigDecimal getUnitPrice() {
         return unitPrice;
+    }
+
+    public String getUnitPriceAsString() {
+        return unitPrice.toPlainString();
     }
 
     public String getDescription() {
@@ -39,8 +44,8 @@ public class Fruit {
     public JSONObject asJson() {
         JSONObject fruitJson = new JSONObject();
         fruitJson.put("title", title);
-        fruitJson.put("size", size + "kb");
-        fruitJson.put("unit_price", unitPrice);
+        fruitJson.put("size", (size / 1024) + "kb");
+        fruitJson.put("unit_price", unitPrice.toPlainString());
         fruitJson.put("description", description);
 
         return fruitJson;
@@ -57,8 +62,8 @@ public class Fruit {
         Fruit fruit = (Fruit) o;
 
         return Double.compare(fruit.size, size) == 0 &&
-                Double.compare(fruit.unitPrice, unitPrice) == 0 &&
                 Objects.equals(title, fruit.title) &&
+                Objects.equals(unitPrice, fruit.unitPrice) &&
                 Objects.equals(description, fruit.description);
     }
 

@@ -14,17 +14,15 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class FruitCollectionTest {
-    private Fruit lemon;
-
-    private Fruit apple;
-
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
+    private Fruit lemon;
+    private Fruit apple;
 
     @Before
     public void setUp() throws Exception {
-        lemon = new Fruit("Very nice lemon", 98.22, 7.2, "A lemon that's very nice");
-        apple = new Fruit("Very nice apple", 123.6, 5.45, "An apple that's very nice");
+        lemon = new Fruit("Very nice lemon", "A lemon that's very nice", "7.2", 45781);
+        apple = new Fruit("Very nice apple", "An apple that's very nice", "5.45", 37589);
     }
 
     @Test
@@ -32,7 +30,7 @@ public class FruitCollectionTest {
         FruitCollection fruits = new FruitCollection(Arrays.asList(lemon, apple));
 
         assertNotNull(fruits.getFruits());
-        assertEquals(12.65, fruits.getTotal(), 0.0);
+        assertEquals("12.65", fruits.getTotal());
 
         List<Fruit> fruitList = fruits.getFruits();
         assertEquals(2, fruitList.size());
@@ -45,7 +43,7 @@ public class FruitCollectionTest {
         FruitCollection fruits1 = new FruitCollection(Collections.emptyList());
 
         assertNotNull(fruits1.getFruits());
-        assertEquals(0.0, fruits1.getTotal(), 0.0);
+        assertEquals("0.0", fruits1.getTotal());
 
         List<Fruit> fruitList1 = fruits1.getFruits();
         assertTrue(fruitList1.isEmpty());
@@ -53,7 +51,7 @@ public class FruitCollectionTest {
         FruitCollection fruits2 = new FruitCollection();
 
         assertNotNull(fruits2.getFruits());
-        assertEquals(0.0, fruits2.getTotal(), 0.0);
+        assertEquals("0.0", fruits2.getTotal());
 
         List<Fruit> fruitList2 = fruits1.getFruits();
         assertTrue(fruitList2.isEmpty());
@@ -72,7 +70,7 @@ public class FruitCollectionTest {
         FruitCollection fruits = new FruitCollection(Arrays.asList(lemon, apple));
 
         JSONObject fruitsAsJson = fruits.asJson();
-        assertEquals(12.65, fruitsAsJson.getDouble("total"), 0.0);
+        assertEquals("12.65", fruitsAsJson.getString("total"));
 
         JSONArray fruitList = fruitsAsJson.getJSONArray("results");
         assertEquals(2, fruitList.length());
