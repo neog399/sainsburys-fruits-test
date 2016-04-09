@@ -37,7 +37,7 @@ public class FruitDocumentProcessorTest {
         when(fruitTitleExtractor.extract("fruit document")).thenReturn("Fruit title");
         when(fruitDescriptionExtractor.extract("fruit document")).thenReturn("Fruit description");
         when(fruitUnitPriceExtractor.extract("fruit document")).thenReturn("2.55");
-        when(fruitSizeExtractor.extract("fruit document")).thenReturn(35.6);
+        when(fruitSizeExtractor.extract("fruit document")).thenReturn(37895);
     }
 
     @Test
@@ -75,6 +75,6 @@ public class FruitDocumentProcessorTest {
         assertEquals("Fruit title", fruit.getTitle());
         assertEquals("Fruit description", fruit.getDescription());
         assertEquals("2.55", fruit.getUnitPriceAsString());
-        assertEquals(35.6, fruit.getSize(), 0.0);
+        assertEquals(37895, fruit.getSize());
     }
 }

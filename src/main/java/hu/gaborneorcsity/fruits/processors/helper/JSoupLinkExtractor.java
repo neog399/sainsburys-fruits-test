@@ -7,7 +7,13 @@ import org.jsoup.select.Elements;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A simple implementation based on JSoup
+ */
 public class JSoupLinkExtractor implements LinkExtractor {
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<String> extract(String document) {
         Elements fruitLinkElements = Jsoup.parse(document).select("div.productinfo > h3 > a");

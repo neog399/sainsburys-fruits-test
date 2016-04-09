@@ -6,16 +6,26 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
 
+/**
+ * A class for representing a fruit
+ */
 public class Fruit {
     private final String title;
 
-    private final double size;
+    private final int size;
 
     private final BigDecimal unitPrice;
 
     private final String description;
 
-    public Fruit(String title, String description, String unitPrice, double size) {
+    /**
+     * Creates a new fruit
+     * @param title the fruit's title
+     * @param description the fruit's description
+     * @param unitPrice the fruit's unit price
+     * @param size the size of the fruit's HTML page
+     */
+    public Fruit(String title, String description, String unitPrice, int size) {
         this.title = title;
         this.description = description;
         this.unitPrice = new BigDecimal(unitPrice);
@@ -26,7 +36,7 @@ public class Fruit {
         return title;
     }
 
-    public double getSize() {
+    public int getSize() {
         return size;
     }
 
@@ -42,6 +52,10 @@ public class Fruit {
         return description;
     }
 
+    /**
+     * Generates and returns the fruit's JSON representation
+     * @return the fruit's JSON representation
+     */
     public JSONObject asJson() {
         JSONObject fruitJson = new JSONObject();
         fruitJson.put("title", title);

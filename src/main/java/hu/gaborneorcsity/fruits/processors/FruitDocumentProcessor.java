@@ -6,6 +6,9 @@ import hu.gaborneorcsity.fruits.processors.attribute_extractors.FruitSizeExtract
 import hu.gaborneorcsity.fruits.processors.attribute_extractors.FruitTitleExtractor;
 import hu.gaborneorcsity.fruits.processors.attribute_extractors.FruitUnitPriceExtractor;
 
+/**
+ * A service for processing an HTML document containing a single fruit
+ */
 public class FruitDocumentProcessor {
     private final FruitTitleExtractor titleExtractor;
 
@@ -27,11 +30,16 @@ public class FruitDocumentProcessor {
         this.sizeExtractor = sizeExtractor;
     }
 
+    /**
+     * Processes the provided HTML document and generates a fruit based on it
+     * @param document the document to be processed
+     * @return the fruit generated from the document
+     */
     public Fruit process(String document) {
         String title = titleExtractor.extract(document);
         String description = descriptionExtractor.extract(document);
         String unitPrice = unitPriceExtractor.extract(document);
-        double size = sizeExtractor.extract(document);
+        int size = sizeExtractor.extract(document);
 
         return new Fruit(title, description, unitPrice, size);
     }

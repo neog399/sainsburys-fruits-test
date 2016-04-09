@@ -12,6 +12,9 @@ import hu.gaborneorcsity.fruits.processors.helper.HtmlRetriever;
 import hu.gaborneorcsity.fruits.processors.helper.JSoupLinkExtractor;
 import org.apache.http.impl.client.HttpClients;
 
+/**
+ * The application runner
+ */
 public class FruitTestApplication {
     private static final String TEST_PAGE_URL = "http://hiring-tests.s3-website-eu-west-1.amazonaws.com/2015_Developer_Scrape/5_products.html";
 
@@ -19,7 +22,11 @@ public class FruitTestApplication {
 
     private HtmlRetriever htmlRetriever;
 
+    /**
+     * Creates a new application runner
+     */
     public FruitTestApplication() {
+        //in real-life, DI would be used here, but for the sake of this example's simplicity I didn't use any DI frameworks
         htmlRetriever = new ApacheHttpRetriever(HttpClients.createDefault());
 
         fruitsDocumentProcessor = new FruitsDocumentProcessor(
@@ -35,6 +42,9 @@ public class FruitTestApplication {
 
     }
 
+    /**
+     * Runs the application
+     */
     public void run() {
         FruitCollection fruits = fruitsDocumentProcessor.process(htmlRetriever.retrieve(TEST_PAGE_URL));
 

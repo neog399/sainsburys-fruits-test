@@ -8,6 +8,9 @@ import hu.gaborneorcsity.fruits.processors.helper.LinkExtractor;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A service for processing an HTML document containing the complete list of fruits
+ */
 public class FruitsDocumentProcessor {
     private final LinkExtractor linkExtractor;
 
@@ -25,6 +28,11 @@ public class FruitsDocumentProcessor {
         this.fruitDocumentProcessor = fruitDocumentProcessor;
     }
 
+    /**
+     * Processes the provided HTML document and generates a collection of fruits based on it
+     * @param document the document to be processed
+     * @return the collection of fruits generated from the document
+     */
     public FruitCollection process(String document) {
         List<Fruit> fruitList = new ArrayList<>();
         for (String fruitLink : linkExtractor.extract(document)) {

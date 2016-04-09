@@ -6,6 +6,9 @@ import org.apache.http.impl.client.BasicResponseHandler;
 
 import java.io.IOException;
 
+/**
+ * A simple implementation based on Apache's HttpClient
+ */
 public class ApacheHttpRetriever implements HtmlRetriever {
     private HttpClient client;
 
@@ -13,6 +16,9 @@ public class ApacheHttpRetriever implements HtmlRetriever {
         this.client = client;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String retrieve(String url) {
         try {

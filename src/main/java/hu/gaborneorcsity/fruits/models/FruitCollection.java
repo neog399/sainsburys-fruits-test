@@ -10,15 +10,25 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * A class for representing a collection of Fruits
+ */
 public class FruitCollection {
     private List<Fruit> fruits;
 
     private BigDecimal total = new BigDecimal("0.0");
 
+    /**
+     * Creates an empty fruit collection
+     */
     public FruitCollection() {
         this(new ArrayList<>());
     }
 
+    /**
+     * Creates a fruit collection containing the provided fruits
+     * @param fruits the fruits to be included in this fruit collection
+     */
     public FruitCollection(List<Fruit> fruits) {
         if (fruits == null) {
             throw new IllegalArgumentException("The list of fruits cannot be null!");
@@ -39,6 +49,10 @@ public class FruitCollection {
         return total.toPlainString();
     }
 
+    /**
+     * Generates and returns a fruit collection's JSON representation
+     * @return the fruit collection's JSON representation
+     */
     public JSONObject asJson() {
         JSONObject fruitCollectionAsJson = new JSONObject();
         fruitCollectionAsJson.put("total", total.setScale(2, RoundingMode.HALF_UP).doubleValue());
