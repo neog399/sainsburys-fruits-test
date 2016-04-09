@@ -3,6 +3,7 @@ package hu.gaborneorcsity.fruits.models;
 import org.json.JSONObject;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Objects;
 
 public class Fruit {
@@ -44,8 +45,8 @@ public class Fruit {
     public JSONObject asJson() {
         JSONObject fruitJson = new JSONObject();
         fruitJson.put("title", title);
-        fruitJson.put("size", (size / 1024) + "kb");
-        fruitJson.put("unit_price", unitPrice.toPlainString());
+        fruitJson.put("size", new BigDecimal(size / 1024).setScale(2, RoundingMode.HALF_UP).doubleValue() + "kb");
+        fruitJson.put("unit_price", unitPrice.setScale(2, RoundingMode.HALF_UP).doubleValue());
         fruitJson.put("description", description);
 
         return fruitJson;

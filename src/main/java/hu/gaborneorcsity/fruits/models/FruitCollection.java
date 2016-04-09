@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -40,7 +41,7 @@ public class FruitCollection {
 
     public JSONObject asJson() {
         JSONObject fruitCollectionAsJson = new JSONObject();
-        fruitCollectionAsJson.put("total", total.toPlainString());
+        fruitCollectionAsJson.put("total", total.setScale(2, RoundingMode.HALF_UP).doubleValue());
 
         JSONArray fruitListAsJson = new JSONArray();
         for (Fruit fruit : fruits) {

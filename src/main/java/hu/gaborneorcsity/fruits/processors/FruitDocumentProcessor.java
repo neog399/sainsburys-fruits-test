@@ -1,10 +1,10 @@
 package hu.gaborneorcsity.fruits.processors;
 
+import hu.gaborneorcsity.fruits.models.Fruit;
 import hu.gaborneorcsity.fruits.processors.attribute_extractors.FruitDescriptionExtractor;
 import hu.gaborneorcsity.fruits.processors.attribute_extractors.FruitSizeExtractor;
 import hu.gaborneorcsity.fruits.processors.attribute_extractors.FruitTitleExtractor;
 import hu.gaborneorcsity.fruits.processors.attribute_extractors.FruitUnitPriceExtractor;
-import hu.gaborneorcsity.fruits.models.Fruit;
 
 public class FruitDocumentProcessor {
     private final FruitTitleExtractor titleExtractor;

@@ -1,7 +1,5 @@
 package hu.gaborneorcsity.fruits.models;
 
-import hu.gaborneorcsity.fruits.models.Fruit;
-import hu.gaborneorcsity.fruits.models.FruitCollection;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Before;
@@ -72,7 +70,7 @@ public class FruitCollectionTest {
         FruitCollection fruits = new FruitCollection(Arrays.asList(lemon, apple));
 
         JSONObject fruitsAsJson = fruits.asJson();
-        assertEquals("12.65", fruitsAsJson.getString("total"));
+        assertEquals(12.65, fruitsAsJson.getDouble("total"), 0.0);
 
         JSONArray fruitList = fruitsAsJson.getJSONArray("results");
         assertEquals(2, fruitList.length());

@@ -1,6 +1,5 @@
 package hu.gaborneorcsity.fruits.models;
 
-import hu.gaborneorcsity.fruits.models.Fruit;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +19,7 @@ public class FruitTest {
         JSONObject fruitAsJson = fruit.asJson();
         assertEquals("Very nice apple", fruitAsJson.getString("title"));
         assertEquals("30.0kb", fruitAsJson.getString("size"));
-        assertEquals("5.45", fruitAsJson.getString("unit_price"));
+        assertEquals(5.45, fruitAsJson.getDouble("unit_price"), 0.0);
         assertEquals("An apple that's very nice", fruitAsJson.getString("description"));
     }
 }
