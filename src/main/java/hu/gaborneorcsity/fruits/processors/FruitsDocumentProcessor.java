@@ -1,4 +1,9 @@
-package hu.gaborneorcsity.fruits;
+package hu.gaborneorcsity.fruits.processors;
+
+import hu.gaborneorcsity.fruits.processors.helper.HtmlRetriever;
+import hu.gaborneorcsity.fruits.processors.helper.LinkExtractor;
+import hu.gaborneorcsity.fruits.models.Fruit;
+import hu.gaborneorcsity.fruits.models.FruitCollection;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,11 @@
-package hu.gaborneorcsity.fruits;
+package hu.gaborneorcsity.fruits.processors;
 
+import hu.gaborneorcsity.fruits.processors.attribute_extractors.FruitDescriptionExtractor;
+import hu.gaborneorcsity.fruits.processors.attribute_extractors.FruitSizeExtractor;
+import hu.gaborneorcsity.fruits.processors.attribute_extractors.FruitTitleExtractor;
+import hu.gaborneorcsity.fruits.processors.attribute_extractors.FruitUnitPriceExtractor;
+import hu.gaborneorcsity.fruits.models.Fruit;
+import hu.gaborneorcsity.fruits.processors.FruitDocumentProcessor;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

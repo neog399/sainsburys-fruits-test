@@ -1,5 +1,6 @@
-package hu.gaborneorcsity.fruits;
+package hu.gaborneorcsity.fruits.models;
 
+import hu.gaborneorcsity.fruits.models.Fruit;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;

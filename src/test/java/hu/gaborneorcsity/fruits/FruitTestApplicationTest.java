@@ -1,5 +1,8 @@
 package hu.gaborneorcsity.fruits;
 
+import hu.gaborneorcsity.fruits.models.FruitCollection;
+import hu.gaborneorcsity.fruits.processors.FruitsDocumentProcessor;
+import hu.gaborneorcsity.fruits.processors.helper.HtmlRetriever;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;

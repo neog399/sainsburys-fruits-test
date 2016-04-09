@@ -1,4 +1,4 @@
-package hu.gaborneorcsity.fruits;
+package hu.gaborneorcsity.fruits.models;
 
 import org.json.JSONObject;
 

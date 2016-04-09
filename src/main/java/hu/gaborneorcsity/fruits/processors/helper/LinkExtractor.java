@@ -1,4 +1,4 @@
-package hu.gaborneorcsity.fruits;
+package hu.gaborneorcsity.fruits.processors.helper;
 
 import java.util.List;
 
