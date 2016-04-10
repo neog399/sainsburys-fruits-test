@@ -6,7 +6,7 @@ A test project for Sainsbury's that retrieves a list of fruits, processes that l
 
 ## The application's flow
 
-The flow of the application consists of five consecutive steps:
+The flow of the application consists of seven steps:
 
 1. Retrieve an HTML document that contains the list of *Sainsbury's ripe fruits*.
 2. Iterate through the list of fruits and extract the links to the pages containing the individual fruits.
