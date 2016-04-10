@@ -9,10 +9,10 @@ import java.io.IOException;
 /**
  * A simple implementation based on Apache's HttpClient
  */
-public class ApacheHttpRetriever implements HtmlRetriever {
+public class ApacheHtmlRetriever implements HtmlRetriever {
     private HttpClient client;
 
-    public ApacheHttpRetriever(HttpClient client) {
+    public ApacheHtmlRetriever(HttpClient client) {
         this.client = client;
     }
 

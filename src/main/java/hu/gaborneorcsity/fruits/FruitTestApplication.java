@@ -7,7 +7,7 @@ import hu.gaborneorcsity.fruits.processors.attribute_extractors.JSoupFruitDescri
 import hu.gaborneorcsity.fruits.processors.attribute_extractors.JSoupFruitSizeExtractor;
 import hu.gaborneorcsity.fruits.processors.attribute_extractors.JSoupFruitTitleExtractor;
 import hu.gaborneorcsity.fruits.processors.attribute_extractors.JSoupFruitUnitPriceExtractor;
-import hu.gaborneorcsity.fruits.processors.helper.ApacheHttpRetriever;
+import hu.gaborneorcsity.fruits.processors.helper.ApacheHtmlRetriever;
 import hu.gaborneorcsity.fruits.processors.helper.HtmlRetriever;
 import hu.gaborneorcsity.fruits.processors.helper.JSoupLinkExtractor;
 import org.apache.http.impl.client.HttpClients;
@@ -27,7 +27,7 @@ public class FruitTestApplication {
      */
     public FruitTestApplication() {
         //in real-life, DI would be used here, but for the sake of this example's simplicity I didn't use any DI frameworks
-        htmlRetriever = new ApacheHttpRetriever(HttpClients.createDefault());
+        htmlRetriever = new ApacheHtmlRetriever(HttpClients.createDefault());
 
         fruitsDocumentProcessor = new FruitsDocumentProcessor(
                 new JSoupLinkExtractor(),
